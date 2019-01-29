@@ -1,0 +1,10 @@
+.counter {
+  display: flex;
+  align-items: stretch;
+}
+.counter > div {
+  margin-right: 10px;
+}
+.counter .badge-wrapper {
+  width: 40px;
+}

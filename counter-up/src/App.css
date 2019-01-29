@@ -1,32 +1,78 @@
-.App {
-  text-align: center;
+body {
+  font-family: Sans-serif;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.content-area {
+  width: 1260px;
+  margin: 0 auto;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content-area.flex {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+.btn {
+  border-radius: 8px;
+  background-color: #888;
+  padding: 10px 15px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 40px;
+  transition: 0.3s;
+}
+.btn.box {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.btn:hover {
+  background-color: #aaa;
+}
+.btn:active {
+  background-color: #eee;
+}
+
+
+.btn.blue {
+  background-color: rgb(69, 138, 230);
+}
+.bt.blue:active {
+  background-color: rgb(69, 142, 238);
+}
+.btn.blue:hover {
+  background-color: rgb(57, 112, 185);
+}
+
+.btn.red {
+  background-color: rgb(211, 71, 71);
+}
+.btn.red:hover {
+  background-color: rgb(236, 81, 81);
+}
+.btn.red:active {
+  background-color: rgb(252, 86, 86);
+}
+
+
+.badge {
+  height: 20px;
+  font-weight: 800;
+  padding: 0 5px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
   color: white;
+  background-color: #888;
 }
-
-.App-link {
-  color: #61dafb;
+.badge.yellow {
+  background-color: rgb(236, 205, 26);
+  color: black;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.badge.blue {
+  background-color: rgb(78, 114, 216);
 }

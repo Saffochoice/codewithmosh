@@ -1,0 +1,15 @@
+.header {
+  height: 90px; 
+  display: flex;
+  align-items: center;
+  background-color: #efefef;
+}
+.header .logo {
+  margin-right: 20px;
+}
+.header .active-items-count {
+  border-radius: 20px;
+  padding: 4px 14px;
+  background-color: #888;
+  color: white;
+}
