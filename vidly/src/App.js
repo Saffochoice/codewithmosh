@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import MovieList from './components/MovieList/MovieList'
+import SideBar from './components/SideBar/SideBar'
+
 import { getMovies } from './services/fakeMovieService'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -15,7 +17,12 @@ class App extends Component {
     const { movies } = this.state
     return (
       <div className="App container">
-        <MovieList movies={movies} deleteMovie={this.deleteMovie}/>
+        <div className="row">
+          <div className="col-3"><SideBar /></div>
+          <div className="col-9">
+            <MovieList movies={movies} deleteMovie={this.deleteMovie} />
+          </div>
+        </div>
       </div>
     );
   }
