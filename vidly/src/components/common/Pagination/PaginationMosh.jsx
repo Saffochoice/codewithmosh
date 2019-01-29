@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'; // ES6
 import _ from 'lodash'
 
 const PaginationMosh = props => {
@@ -15,5 +16,12 @@ const PaginationMosh = props => {
     </div>
   );
 };
+
+PaginationMosh.propTypes = {
+  itemsCount: PropTypes.number.isRequired, 
+  pageSize: PropTypes.number.isRequired, 
+  currentPage: PropTypes.number.isRequired, 
+  setCurrentPage: PropTypes.func.isRequired, 
+}
 
 export default PaginationMosh;
