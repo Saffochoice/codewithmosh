@@ -10,7 +10,7 @@ export default class Pagination extends Component {
     return (
       <div className='pagination'>
         <nav aria-label="Page navigation example">
-          <ul class="pagination">
+          <ul className="pagination">
             {this.renderItems()}
           </ul>
         </nav>
@@ -20,7 +20,7 @@ export default class Pagination extends Component {
   renderItems = () => {
     const items = []
     for(let i = 0; i < this.state.count/this.state.pageSize; i++) {
-      items.push(<li key={i*10} class="page-item"><a class="page-link" href="#">{i+1}</a></li>)
+      items.push(<li key={i*10} className="page-item"><a className="page-link" href='!#'>{i+1}</a></li>)
     }
     return items
   }

@@ -10,7 +10,7 @@ const PaginationMosh = props => {
     <div className='pagination'>
       <nav aria-label="Page navigation example">
         <ul className="pagination">
-          {pages.map(el => <li key={el} onClick={() => setCurrentPage(el)} className={currentPage === el ? 'page-item active' : 'page-item'}><a className="page-link" >{el}</a></li>)}
+          {pages.map(el => <li key={el} onClick={() => setCurrentPage(el)} className={currentPage === el ? 'page-item active' : 'page-item'}><span className="page-link" >{el}</span></li>)}
         </ul>
       </nav>
     </div>
