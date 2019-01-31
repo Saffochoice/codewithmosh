@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import MovieList from './components/MovieList/MovieList'
-import ListGroup from './components/common/ListGroup/ListGroup'
+import React, { Component } from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
+import NavBar from './components/NavBar/NavBar'
+import MoviesPage from './components/MoviesPage/MoviesPage'
+import SingleMovie from './components/SingleMovie/SingleMovie'
 
 import { getMovies } from './services/fakeMovieService'
 import { getGenres } from './services/fakeGenreService'
@@ -17,7 +19,47 @@ class App extends Component {
     currentListItem: null,
     pageSize: 4,
     currentPage: 1,
-    sortColumn: { path: 'title', order: 'asc' }
+    sortColumn: { path: 'title', order: 'asc' },
+    currentRoutePage: 'movies'
+  }
+
+  render() {
+    const { movies, genres, currentListItem, pageSize, currentPage, sortColumn } = this.state
+    return (
+      <div className="App container">
+        <NavBar />
+
+        <Switch>
+          <Route path='/movies/:id' component={SingleMovie}/>
+          <Route path='/movies'>
+            <MoviesPage 
+              setCurrentPage={this.setCurrentPage} 
+              onSort={this.onSort} 
+              deleteMovie={this.deleteMovie} 
+              handleGenreSelect={this.handleGenreSelect} 
+              toggleLike={this.toggleLike} 
+              movies={movies} 
+              genres={genres} 
+              currentListItem={currentListItem} 
+              pageSize={pageSize} 
+              currentPage={currentPage} 
+              sortColumn={sortColumn} />
+          </Route>
+          <Route path='/customers'><p>Get high</p></Route>
+          <Route path='/rentals'><p>Get high</p></Route>
+          <Redirect from='/' exact to='movies'></Redirect>
+          <Redirect to='/not-found'></Redirect>
+        </Switch>
+      </div>
+    );
+  }
+
+  componentDidMount() {
+    const genres = [{ _id: '', name: 'All genres' }, ...getGenres()]
+    this.setState({
+      movies: getMovies(),
+      genres
+    })
   }
 
   setCurrentPage = page => {
@@ -26,49 +68,12 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    const genres = [{_id: '', name: 'All genres'}, ...getGenres()]
-    this.setState({
-      movies: getMovies(),
-      genres
-    })
-  }
-
-  render() {
-    const { movies, genres, currentListItem, pageSize, currentPage, sortColumn } = this.state
-    return (
-      <div className="App container">
-        <div className="row">
-          <div className="col-3">
-          <ListGroup 
-            handleGenreSelect={this.handleGenreSelect} 
-            items={genres} 
-            funcProp='handleGenreSelect'
-            currentListItem={currentListItem}
-          /></div>
-          <div className="col-9">
-            <MovieList 
-              sortColumn={sortColumn}
-              onSort={this.onSort} 
-              pageSize={pageSize} 
-              currentPage={currentPage} 
-              setCurrentPage={this.setCurrentPage} 
-              movies={movies} 
-              deleteMovie={this.deleteMovie} 
-              toggleLike={this.toggleLike} 
-              selectedGenre={currentListItem}/>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   onSort = sortColumn => {
     this.setState({ sortColumn })
   }
 
   handleGenreSelect = genre => {
-    this.setState({currentListItem: genre, currentPage: 1})
+    this.setState({ currentListItem: genre, currentPage: 1 })
   }
 
   toggleLike = (id) => {
