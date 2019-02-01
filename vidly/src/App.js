@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import MoviesPage from './components/MoviesPage/MoviesPage'
 import SingleMovie from './components/SingleMovie/SingleMovie'
+import Login from './components/LoginForm/LoginForm'
 
 import { getMovies } from './services/fakeMovieService'
 import { getGenres } from './services/fakeGenreService'
@@ -30,6 +31,7 @@ class App extends Component {
         <NavBar />
 
         <Switch>
+          <Route path='/login' component={Login}/>
           <Route path='/movies/:id' component={SingleMovie}/>
           <Route path='/movies'>
             <MoviesPage 
