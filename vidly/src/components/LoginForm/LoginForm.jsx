@@ -16,7 +16,7 @@ export default class LoginForm extends Component {
         value: ''
       },
     ],
-    errors: null
+    errors: {}
   }
   
   render() {
@@ -26,7 +26,7 @@ export default class LoginForm extends Component {
       <div>
         <h1>Login</h1>
         <form onSubmit={this.handleSumbit}>
-          { account.map(el => <Input key={el.tag} handleChange={this.handleChange} tag={el.tag} title={el.title} value={el.value} error={errors ? errors[el.tag] : null}/>) }
+          { account.map(el => <Input key={el.tag} handleChange={this.handleChange} tag={el.tag} title={el.title} value={el.value} error={errors[el.tag] ? errors[el.tag] : null}/>) }
           <button className='btn btn-primary'>Login</button>
         </form>
       </div>
@@ -44,10 +44,8 @@ export default class LoginForm extends Component {
     account.forEach(el => {
       if(el.value.trim() === '')
         errors[el.tag] = `${el.title} is required`
-      else
-        errors[el.tag] = null
     })
-    return Object.keys(errors).length === 0 ? null : errors
+    return Object.keys(errors).length === 0 ? {} : errors
   }
   handleSumbit = e => {
     e.preventDefault()
