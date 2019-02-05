@@ -1,0 +1,83 @@
+{
+  "tags": [
+    {
+      "id": 1,
+      "name": "JS",
+      "color": "tomato",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "name": "Bash",
+      "color": "#521341",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "name": "React",
+      "color": "blue",
+      "userId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Rob",
+      "lastName": "Stark",
+      "email": "rob@winterfall.ru",
+      "age": 24
+    },
+    {
+      "id": 2,
+      "firstName": "Peter",
+      "lastName": "Pokir",
+      "email": "spuder@mail.ru",
+      "age": 224
+    },
+    {
+      "id": 3,
+      "firstName": "wwo",
+      "lastName": "kurj",
+      "email": "ewf@wf",
+      "age": 122
+    },
+    {
+      "id": 4,
+      "firstName": "wwo",
+      "lastName": "kurj",
+      "email": "ewf@wf",
+      "age": 122
+    },
+    {
+      "id": 5,
+      "firstName": "wwo",
+      "lastName": "kurj",
+      "email": "ewf@wf",
+      "age": 122
+    }
+  ],
+  "chunks": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "ES6 Module",
+      "des": "Simple ES6 Module syntax",
+      "content": "Simple ES6 Module syntax",
+      "tags": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "ES6 Module",
+      "des": "Simple ES6 Module syntax",
+      "content": "Simple ES6 Module syntax",
+      "tags": [
+        1,
+        2
+      ]
+    }
+  ]
+}

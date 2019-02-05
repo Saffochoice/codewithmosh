@@ -1,0 +1,14 @@
+.tag-component {
+  padding: 10px 30px;
+  background-color: #fff;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  font-size: 1rem;
+  border: 6px solid white;
+  &:hover, &.selected {
+    border-color: #fff !important;
+  }
+}
